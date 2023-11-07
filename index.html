@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aruza's Amazing Adventures</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="i/char.jpg">
+
+</head>
+<body background="i/BACKGROUND.jpg">
+    <div class="container">
+        <br><br><br><br><br>
+        <div id="music-control"></div>
+        <h1 class="title floating" id="myText">ARUZA'S AMAZING ADVENTURES</h1>
+
+        <button id = "myButton" class = "start-button">START</button><br>
+        <audio id="myAudio" autoplay>
+            <source src="ttt.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <script>
+            const button = document.getElementById('myButton');
+            button.addEventListener('click', function() {
+                const nextPageURL = 'gameplay.html';
+window.location.href = nextPageURL;
+});
+const musicControl = document.getElementById('music-control');
+const audioElement = document.getElementById('myAudio');
+
+let isPlaying = true;
+
+musicControl.addEventListener('mouseover', function() {
+    if (!isPlaying) {
+        audioElement.play();
+        isPlaying = true;
+        musicControl.style.backgroundImage = 'url(i/pic1.jpg)';
+    } else {
+        audioElement.pause();
+        isPlaying = false;
+        musicControl.style.backgroundImage = 'url(i/pic2.jpg)';
+    }
+});
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+#music-control {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;background-image: url(i/pic1.jpg);
+  background-size: cover;
+}
+#maze {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-template-rows: repeat(10, 50px);
+  border: 2px solid rgb(215, 82, 202);
+  width: 500px;
+  height: 500px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  font-family: 'Common Pixel', sans-serif;
+    font-size: 16px;
+    color: rgb(117, 56, 175);
+    border: 2px solid rgb(117, 56, 175);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-family: 'Common Pixel', sans-serif;
+    font-size: 16px;
+    background-color: rgb(253, 205, 255);
+    color: rgb(117, 56, 175);
+    border: 2px solid rgb(117, 56, 175);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Common Pixel', sans-serif;
+    font-size: 16px;
+    background-color: rgb(253, 205, 255);
+    color: rgb(117, 56, 175);
+    border: 2px solid rgb(117, 56, 175);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(215, 82, 202);
+  background-color: rgb(255, 225, 252);
+}
+
+.wall {
+  background-image: url("i/tree.png");
+  background-size: cover;
+}
+
+.finish {
+  background-image: url("i/castle.jpg");
+  background-size: cover;
+}
+
+.player {
+  background-image: url("i/char.jpg");
+  
+  background-size: cover;
+}
+
+.pixel-button {
+    font-family: 'Common Pixel', sans-serif;
+    font-size: 16px;
+    background-color: rgb(253, 205, 255);
+    color: rgb(117, 56, 175);
+    border: 2px solid rgb(117, 56, 175);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: absolute;
+        left: 800px;
+        top: 500px;
+        
+  box-shadow: 0 9px #332553;
+  }
+  .pixel-button:active {
+    box-shadow: 0 5px #332553;
+    transform: translateY(4px);
+  }
+  .pixel-button2:active {
+    box-shadow: 0 5px #332553;
+    transform: translateY(4px);
+  }
+  .pixel-button2 {
+    font-family: 'Common Pixel', sans-serif;
+    font-size: 16px;
+    background-color: rgb(253, 205, 255);
+    color: rgb(117, 56, 175);
+    border: 2px solid rgb(117, 56, 175);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 9px #332553;
+    position: absolute;
+    bottom: 5%;
+  }
+  .pixel-button:hover {
+    background-color: rgb(184, 109, 255);
+    color: #2b2b2b;
+  }
+  .pixel-button2:hover {
+    background-color: rgb(184, 109, 255);
+    color: #2b2b2b;
+  }
+  .pixel-button::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: transparent;
+    border: 4px solid rgb(117, 56, 175);
+    border-radius: 5px;
+    z-index: -1;
+  }
+  .pixel-button2::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: transparent;
+    border: 4px solid rgb(117, 56, 175);
+    border-radius: 5px;
+    z-index: -1;
+  }
+  .button:focus {
+    outline: none;
+  }  
+  .button2:focus {
+    outline: none;
+  }  
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container2 {
+    width: 600px; 
+    border: 10px solid rgb(117, 56, 175);
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 20px;
+    top: 20px; 
+    padding: 20px;
+    color: rgb(117, 56, 175);font-weight: bold;
+    line-height: 1.5;
+}
+.container {
+    text-align: center;
+}
+#container {
+    width: 50%;
+    background: #fff;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#text {
+    animation: typeText 3s steps(60, end);
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.title {
+    font-family: 'Common Pixel', sans-serif;
+    font-size: 120px;
+    color: rgb(85, 92, 230);
+    text-shadow: 2px 2px 0px #ffffff, 10px 10px 0px rgb(85, 92, 230);
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, rgb(85, 92, 230), rgb(85, 92, 230));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.start-button {
+    font-family: 'Common Pixel', sans-serif;
+    font-size: 36px;
+    color: #68c3ff;
+    background-color: white;
+    border: 2px solid rgb(85, 92, 230);
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 2px 2px rgb(85, 92, 230);
+    border-radius: 10px;
+    
+  box-shadow: 0 9px #16154d;
+}
+.start-button:active {
+  box-shadow: 0 5px #16154d;
+  transform: translateY(4px);
+}
+.start-button:hover {
+    background-color: #6889ff;
+    color: white;
+}
+
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }    
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aruza's Amazing Adventures</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="i/char.jpg">
+    </head>
+    <body background="i/BACKGROUND.gif">
+        <div id="music-control"></div>
+        <div id="maze"></div><br>
+        <audio id="myAudio" autoplay>
+            <source src="ttt.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button id="myBtn" class = "pixel-button2" style = "position: absolute;">INSTRUCTIONS</button>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Use arrows to MOVE. Your goal is to get to the CASTLE. 
+    </p>
+  </div>
+</div>
+        <script>
+            var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+const musicControl = document.getElementById('music-control');
+const audioElement = document.getElementById('myAudio');
+
+let isPlaying = true;
+
+musicControl.addEventListener('mouseover', function() {
+    if (!isPlaying) {
+        audioElement.play();
+        isPlaying = true;
+        musicControl.style.backgroundImage = 'url(i/pic1.jpg)';
+    } else {
+        audioElement.pause();
+        isPlaying = false;
+        musicControl.style.backgroundImage = 'url(i/pic2.jpg)';
+    }
+});
+
+            const maze = document.getElementById('maze');
+            const rows = 10;
+            const cols = 10;
+            const mazeCells = [];
+    
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    mazeCells.push(cell);
+                    maze.appendChild(cell);
+                }
+            }
+    
+            const walls = [];
+            for (let row = 1; row <= 9; row++) {
+                walls.push({ row, col: 9 });}
+                for (let row = 1; row <= 8; row++) {
+                walls.push({ row, col: 7 });}
+            for (let col = 0; col <= 7; col++) {
+                 walls.push({ row: 1, col });
+            }
+            for (let col = 1; col <= 7; col++) {
+                 walls.push({ row: 8, col });
+            }
+            for (let row = 3; row <= 7; row++) {
+                walls.push({ row, col: 1 });}
+                for (let col = 2; col <= 5; col++) {
+                 walls.push({ row: 3, col });
+            }
+            for (let row = 3; row <= 6; row++) {
+                walls.push({ row, col: 5 });}
+                
+
+
+            console.log(walls);
+
+    
+            walls.forEach((wall) => {
+                const index = wall.row * cols + wall.col;
+                mazeCells[index].classList.add('wall');
+            });
+    
+            const finishLine = { row: 6, col: 3 };
+    
+            const finishIndex = finishLine.row * cols + finishLine.col;
+            mazeCells[finishIndex].classList.add('finish');
+    
+            let playerPosition = 0;
+            mazeCells[playerPosition].classList.add('player');
+    
+            document.addEventListener('keydown', (event) => {
+                mazeCells[playerPosition].classList.remove('player');
+                switch (event.key) {
+                    case 'ArrowUp':
+                        if (playerPosition >= cols && !mazeCells[playerPosition - cols].classList.contains('wall')) {
+                            playerPosition -= cols;
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (playerPosition < (rows - 1) * cols && !mazeCells[playerPosition + cols].classList.contains('wall')) {
+                            playerPosition += cols;
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (playerPosition % cols !== 0 && !mazeCells[playerPosition - 1].classList.contains('wall')) {
+                            playerPosition--;
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (playerPosition % cols < cols - 1 && !mazeCells[playerPosition + 1].classList.contains('wall')) {
+                            playerPosition++;
+                        }
+                        break;
+                }
+                
+                if (playerPosition === finishIndex) {
+                    alert('You reached the CASTLE!');
+
+                    playerPosition = 0;
+                }
+    
+                mazeCells[playerPosition].classList.add('player');
+            });
+        </script>
+    </body>
+    </html>
+    

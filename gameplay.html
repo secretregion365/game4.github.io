@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aruza's Amazing Adventures</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="i/char.jpg">
+</head>
+<body background="i/game.png">
+    <div id="music-control"></div>
+        <div id="text" class="container2" id="textContainer">
+            You found yourself awakening by the tranquil lakeside,<br>your head throbbing and your senses in disarray.<br>
+            The very essence of your identity is a shrouded enigma,<br>
+            lost in the mist of forgotten memories. However, an inexplicable<br>
+            vigor pulses within you, compelling you towards the majestic castle<br>
+            that graces the lake's opposite shore.<br>
+
+            In the midst of uncertainty, you discover a compelling energy that<br>
+            beckons you towards the castle's towering spires,<br>
+            adorned with ancient mysteries and untold tales.<br>
+            This journey is not only to unravel your own forgotten past<br>
+            but to etch new legends into the annals of time.<br>
+            With resolute determination, you embark upon this epic quest,<br>
+            where your story is yet to be written.</div><br>
+                <a href = "next.html"><button class="pixel-button">NEXT</button></a>
+                <audio id="myAudio" autoplay>
+                    <source src="ttt.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+        <script>
+          const musicControl = document.getElementById('music-control');
+const audioElement = document.getElementById('myAudio');
+
+let isPlaying = true;
+
+musicControl.addEventListener('mouseover', function() {
+    if (!isPlaying) {
+        audioElement.play();
+        isPlaying = true;
+        musicControl.style.backgroundImage = 'url(i/pic1.jpg)';
+    } else {
+        audioElement.pause();
+        isPlaying = false;
+        musicControl.style.backgroundImage = 'url(i/pic2.jpg)';
+    }
+});
+
+        </script>
+    </body>
+</html>
+    
